@@ -26,7 +26,7 @@
     DB_CONNECTION=mysql
     DB_HOST=laravel.cim78dtgz3dv.ap-northeast-1.rds.amazonaws.com
     DB_PORT=3306
-    DB_DATABASE=
+    DB_DATABASE=projectsTest1
     DB_USERNAME=
     DB_PASSWORD=
 
