@@ -6,6 +6,7 @@ import Header from './Header';
 import BoardShow from '../Route/Board/BoardShow';
 import BoardEdit from '../Route/Board/BoardEdit';
 import BoardCreate from '../Route/Board/BoardCreate';
+import Post from '../Route/Post';
 export default () => (
         <Router>
         <>
@@ -16,6 +17,7 @@ export default () => (
                 <Route path="/boards/create" exact component={BoardCreate} />
                 <Route path="/boards/:id" exact component={BoardShow} />
                 <Route path="/boards/:id/edit" exact component={BoardEdit} />
+                <Route path="/posts" exact component={Post} />
                 <Redirect from="*" to="/" />
             </Switch>
         </>

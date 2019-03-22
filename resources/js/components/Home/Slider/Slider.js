@@ -4,6 +4,7 @@ import RightArrow from './arrows/right-arrow';
 import styled from 'styled-components';
 import {Link, withRouter} from 'react-router-dom'
 
+
 const SlideContainer = styled.div`
     position: relative;
 `;
@@ -23,26 +24,33 @@ const SlideBox = styled.div`
 
 const SlideImageBox = styled.div`
     float:left;
-    /* position: relative;
-    width: 100vw;
-    height : 60vh; */
-    &:nth-child(3){
+    &:nth-child(1) p{
         color:white;
+        font-size: 100px;
+    }
+    &:nth-child(2) p{
+        color:red;
+        font-size: 100px;
+    }
+    &:nth-child(3) p{
+        color:blue;
+        font-size: 100px;
+    }
+    &:nth-child(4) p{
+        color:green;
+        font-size: 100px;
+    }
+    &:nth-child(5) p{
+        color:yellow;
+        font-size: 100px;
+    }
+    &:nth-child(6) p{
+        color:skyblue;
         font-size: 100px;
     }
 
 `;
-// const SlideImage = styled.img`
-//     width: 100vw;
-//     height: 60vh;
-// `;
-// const SlideImage = styled.img`
-//     position: absolute;
-//     top: 0;
-//     left: 0;
-//     width: 100%;
-//     height: 100%;
-// `;
+
 
 const SlideImage = styled.div`
     background: url('${props => props.background ? props.background : null}');
@@ -57,6 +65,10 @@ const SlideImage = styled.div`
 const Arrows = styled.div`
     cursor:pointer;
     color: #6a737b;
+`;
+
+const Auto = styled.div`
+
 `;
 
 
@@ -74,13 +86,28 @@ class Slider extends Component {
           "https://images.unsplash.com/photo-1504610926078-a1611febcad3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
           "https://images.unsplash.com/photo-1457732815361-daa98277e9c8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
         ],
-        page : 0
+        page : 0,
+        auto : true
       }
 
       this.renderSliderImages = this.renderSliderImages.bind(this);
       this.goToNextSlide = this.goToNextSlide.bind(this);
       this.goToPrevSlide = this.goToPrevSlide.bind(this);
       this.moveTo = this.moveTo.bind(this);
+      this.handleAuto = this.handleAuto.bind(this);
+    }
+
+    handleAuto(){
+        if(this.state.auto){
+            this.setState({
+                auto : false
+            })
+        }else{
+            this.setState({
+                auto : true
+            })
+        }
+
     }
 
     moveTo(index){
@@ -95,7 +122,6 @@ class Slider extends Component {
         this.setState({
             page : this.state.page + 1
         })
-        console.log(this.state.page)
         if(this.state.page > this.state.images.length - 1)
         {
             this.setState({
@@ -117,20 +143,27 @@ class Slider extends Component {
     }
 
     componentWillMount(){
-        window.setInterval(()=>{
-            this.moveTo(this.state.page)
-            this.goToNextSlide()
-        }, 1000*4)
+        {this.state.auto
+            ? (
+                window.setInterval(()=>{
+                    this.moveTo(this.state.page)
+                    this.goToNextSlide()
+                }, 1000*2)
+            )
+            : (
+                console.log('what')
+            )
+        }
     }
 
 
     renderSliderImages(){
         return (
             this.state.images.map(image => (
-                <SlideImageBox>
+                <SlideImageBox key={image.id}>
                     {/* <SlideImage src={image}></SlideImage> */}
                     <SlideImage background={`${image}`}>
-                        <p>hey</p>
+                        <p>content test</p>
                     </SlideImage>
                 </SlideImageBox>
             ))
@@ -154,6 +187,9 @@ class Slider extends Component {
             goToNextSlide={this.goToNextSlide}
             />
         </Arrows>
+        <Auto>
+            <button onClick={()=>this.handleAuto()}>自動?</button>
+        </Auto>
       </SlideContainer>
     );
   }
