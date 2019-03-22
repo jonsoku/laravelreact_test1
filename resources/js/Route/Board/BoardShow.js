@@ -51,6 +51,10 @@ export default class BoardShow extends Component {
             body : this.state.body
         }).then(
             this.getBoardComments()
+        ).then(
+            this.setState({
+                body : ''
+            })
         )
     }
 

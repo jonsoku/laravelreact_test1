@@ -20,7 +20,7 @@ export default class BoardCreate extends Component {
         try{
             Axios.post(`/boards`, {
                 title : this.state.title,
-                description : this.state.description
+                description : this.state.description,
             })
         }catch{
             this.setState({
@@ -43,6 +43,8 @@ export default class BoardCreate extends Component {
             description : e.target.value
         })
     }
+
+
 
     renderBoardCreateBox(){
         return (

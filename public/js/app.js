@@ -69725,7 +69725,9 @@ function (_Component) {
       e.preventDefault();
       axios__WEBPACK_IMPORTED_MODULE_2___default.a.post("/boards/".concat(this.state.board.id, "/boardComments"), {
         body: this.state.body
-      }).then(this.getBoardComments());
+      }).then(this.getBoardComments()).then(this.setState({
+        body: ''
+      }));
     }
   }, {
     key: "handleChange1",
@@ -69910,10 +69912,10 @@ function (_Component) {
 
 /***/ }),
 
-/***/ "./resources/js/Route/Home.js":
-/*!************************************!*\
-  !*** ./resources/js/Route/Home.js ***!
-  \************************************/
+/***/ "./resources/js/Route/Home/Home.js":
+/*!*****************************************!*\
+  !*** ./resources/js/Route/Home/Home.js ***!
+  \*****************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -69922,6 +69924,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Home; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_Home_Slider_Slider__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components/Home/Slider/Slider */ "./resources/js/components/Home/Slider/Slider.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -69942,6 +69945,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
+
 var Home =
 /*#__PURE__*/
 function (_Component) {
@@ -69956,7 +69960,7 @@ function (_Component) {
   _createClass(Home, [{
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Home");
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Home_Slider_Slider__WEBPACK_IMPORTED_MODULE_1__["default"], null));
     }
   }]);
 
@@ -70234,6 +70238,314 @@ var Header = function Header() {
 
 /***/ }),
 
+/***/ "./resources/js/components/Home/Slider/Slider.js":
+/*!*******************************************************!*\
+  !*** ./resources/js/components/Home/Slider/Slider.js ***!
+  \*******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _arrows_left_arrow__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./arrows/left-arrow */ "./resources/js/components/Home/Slider/arrows/left-arrow.js");
+/* harmony import */ var _arrows_right_arrow__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./arrows/right-arrow */ "./resources/js/components/Home/Slider/arrows/right-arrow.js");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _templateObject6() {
+  var data = _taggedTemplateLiteral(["\n    cursor:pointer;\n    color: #6a737b;\n"]);
+
+  _templateObject6 = function _templateObject6() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject5() {
+  var data = _taggedTemplateLiteral(["\n    background: url('", "');\n    background-size: 100% 100%;\n    background-repeat: no-repeat;\n    background-position: center;\n    width: 100vw;\n    height: 60vh;\n\n"]);
+
+  _templateObject5 = function _templateObject5() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject4() {
+  var data = _taggedTemplateLiteral(["\n    float:left;\n    /* position: relative;\n    width: 100vw;\n    height : 60vh; */\n    &:nth-child(3){\n        color:white;\n        font-size: 100px;\n    }\n\n"]);
+
+  _templateObject4 = function _templateObject4() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject3() {
+  var data = _taggedTemplateLiteral(["\n    width:  ", " ;\n    margin-left : ", ";\n    transition: all 1s;\n    overflow:hidden;\n"]);
+
+  _templateObject3 = function _templateObject3() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject2() {
+  var data = _taggedTemplateLiteral(["\n    width: 100vw;\n    height : 60vh;\n    overflow : hidden ;\n"]);
+
+  _templateObject2 = function _templateObject2() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject() {
+  var data = _taggedTemplateLiteral(["\n    position: relative;\n"]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+
+
+
+
+
+var SlideContainer = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].div(_templateObject());
+var SlideBoxes = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].div(_templateObject2());
+var SlideBox = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].div(_templateObject3(), function (props) {
+  return props.width ? props.width : null;
+}, function (props) {
+  return props.marginLeft ? props.marginLeft : null;
+});
+var SlideImageBox = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].div(_templateObject4()); // const SlideImage = styled.img`
+//     width: 100vw;
+//     height: 60vh;
+// `;
+// const SlideImage = styled.img`
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     width: 100%;
+//     height: 100%;
+// `;
+
+var SlideImage = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].div(_templateObject5(), function (props) {
+  return props.background ? props.background : null;
+});
+var Arrows = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].div(_templateObject6());
+
+var Slider =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(Slider, _Component);
+
+  function Slider(props) {
+    var _this;
+
+    _classCallCheck(this, Slider);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Slider).call(this, props));
+    _this.state = {
+      images: ["https://images.unsplash.com/photo-1503431128871-cd250803fa41?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60", "https://images.unsplash.com/photo-1506220926022-cc5c12acdb35?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60", "https://images.unsplash.com/photo-1487971758969-ec18be02bd43?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60", "https://images.unsplash.com/photo-1472566316349-bce77aa2a778?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60", "https://images.unsplash.com/photo-1504610926078-a1611febcad3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60", "https://images.unsplash.com/photo-1457732815361-daa98277e9c8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"],
+      page: 0
+    };
+    _this.renderSliderImages = _this.renderSliderImages.bind(_assertThisInitialized(_this));
+    _this.goToNextSlide = _this.goToNextSlide.bind(_assertThisInitialized(_this));
+    _this.goToPrevSlide = _this.goToPrevSlide.bind(_assertThisInitialized(_this));
+    _this.moveTo = _this.moveTo.bind(_assertThisInitialized(_this));
+    return _this;
+  }
+
+  _createClass(Slider, [{
+    key: "moveTo",
+    value: function moveTo(index) {
+      index = index || 0;
+      index = index % this.state.images.length;
+      this.setState({
+        page: index
+      });
+    }
+  }, {
+    key: "goToNextSlide",
+    value: function goToNextSlide() {
+      this.setState({
+        page: this.state.page + 1
+      });
+      console.log(this.state.page);
+
+      if (this.state.page > this.state.images.length - 1) {
+        this.setState({
+          page: 0
+        });
+      }
+    }
+  }, {
+    key: "goToPrevSlide",
+    value: function goToPrevSlide() {
+      this.setState({
+        page: this.state.page - 1
+      });
+      console.log(this.state.page);
+
+      if (this.state.page === 0) {
+        this.setState({
+          page: this.state.images.length - 1
+        });
+      }
+    }
+  }, {
+    key: "componentWillMount",
+    value: function componentWillMount() {
+      var _this2 = this;
+
+      window.setInterval(function () {
+        _this2.moveTo(_this2.state.page);
+
+        _this2.goToNextSlide();
+      }, 1000 * 4);
+    }
+  }, {
+    key: "renderSliderImages",
+    value: function renderSliderImages() {
+      return this.state.images.map(function (image) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(SlideImageBox, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(SlideImage, {
+          background: "".concat(image)
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "hey")));
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(SlideContainer, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(SlideBoxes, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(SlideBox, {
+        width: '100' * this.state.images.length + 'vw',
+        marginLeft: '-' + '100' * "".concat(this.state.page) + 'vw'
+      }, this.renderSliderImages())), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Arrows, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_arrows_left_arrow__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        goToPrevSlide: this.goToPrevSlide
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_arrows_right_arrow__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        goToNextSlide: this.goToNextSlide
+      })));
+    }
+  }]);
+
+  return Slider;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["withRouter"])(Slider));
+
+/***/ }),
+
+/***/ "./resources/js/components/Home/Slider/arrows/left-arrow.js":
+/*!******************************************************************!*\
+  !*** ./resources/js/components/Home/Slider/arrows/left-arrow.js ***!
+  \******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+function _templateObject() {
+  var data = _taggedTemplateLiteral(["\n    position: absolute;\n    left: 5%;\n    top: 50%;\n    transform: translate(-50%, -50%);\n"]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+
+
+var Arrow = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div(_templateObject());
+
+var LeftArrow = function LeftArrow(props) {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Arrow, {
+    className: "backArrow",
+    onClick: props.goToPrevSlide
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    className: "fas fa-chevron-left fa-2x",
+    "aria-hidden": "true"
+  }));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (LeftArrow);
+
+/***/ }),
+
+/***/ "./resources/js/components/Home/Slider/arrows/right-arrow.js":
+/*!*******************************************************************!*\
+  !*** ./resources/js/components/Home/Slider/arrows/right-arrow.js ***!
+  \*******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+function _templateObject() {
+  var data = _taggedTemplateLiteral(["\n    position: absolute;\n    right: 5%;\n    top: 50%;\n    transform: translate(-50%, -50%);\n"]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+
+
+var Arrow = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div(_templateObject());
+
+var RightArrow = function RightArrow(props) {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Arrow, {
+    className: "nextArrow",
+    onClick: props.goToNextSlide
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    className: "fas fa-chevron-right fa-2x",
+    "aria-hidden": "true"
+  }));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (RightArrow);
+
+/***/ }),
+
 /***/ "./resources/js/components/Loader.js":
 /*!*******************************************!*\
   !*** ./resources/js/components/Loader.js ***!
@@ -70302,7 +70614,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var _Route_Home__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Route/Home */ "./resources/js/Route/Home.js");
+/* harmony import */ var _Route_Home_Home__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Route/Home/Home */ "./resources/js/Route/Home/Home.js");
 /* harmony import */ var _Route_Board_Board__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Route/Board/Board */ "./resources/js/Route/Board/Board.js");
 /* harmony import */ var _Header__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Header */ "./resources/js/components/Header.js");
 /* harmony import */ var _Route_Board_BoardShow__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../Route/Board/BoardShow */ "./resources/js/Route/Board/BoardShow.js");
@@ -70320,7 +70632,7 @@ __webpack_require__.r(__webpack_exports__);
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["HashRouter"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Header__WEBPACK_IMPORTED_MODULE_4__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
     path: "/",
     exact: true,
-    component: _Route_Home__WEBPACK_IMPORTED_MODULE_2__["default"]
+    component: _Route_Home_Home__WEBPACK_IMPORTED_MODULE_2__["default"]
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
     path: "/boards",
     exact: true,

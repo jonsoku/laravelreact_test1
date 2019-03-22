@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import {HashRouter as Router,Switch,Route,Redirect} from 'react-router-dom';
-import Home from '../Route/Home';
+import Home from '../Route/Home/Home';
 import Board from '../Route/Board/Board';
 import Header from './Header';
 import BoardShow from '../Route/Board/BoardShow';

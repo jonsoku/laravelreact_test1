@@ -18,6 +18,7 @@ class CreateBoardsTable extends Migration
             $table->unsignedBigInteger('user_id')->index();
             $table->string('title');
             $table->text('description');
+            $table->string('thumbnail')->nullable();
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

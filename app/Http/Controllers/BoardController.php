@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Board;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
 
 class BoardController extends Controller
 {
@@ -22,6 +23,16 @@ class BoardController extends Controller
             'title' => 'required',
             'description' => 'required'
         ]);
+
+        $board = new Board;
+        if(Input::hasFile('thumnail'))
+        {
+            $thumbnail = Input::file('thumbnail');
+            $newFileName = time().'-'.$thumbnail->getClientOriginalName();
+
+            $thumbnail->move(stroage_path().'/files/',$newFileName);
+            $board->thumbnail = $newFileName;
+        }
         $request->user()->boards()->create([
             'title' => $request->title,
             'description' => $request->description
